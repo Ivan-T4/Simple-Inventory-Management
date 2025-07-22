@@ -138,6 +138,7 @@ Untuk pengambilan produk, sistem menggunakan pendekatan berikut:
 5. Mengurangi `Stock` produk dari inventaris setelah ada konfirmasi pengambilan.**
 
 *: jika `Stock` produk yang ingin diambil **lebih banyak** dari yang ada di inventaris, permintaan pengambilan akan dibatalkan.
+
 **: jika `Stock` produk di inventari menjadi **0** setelah adanya pengambilan, maka detail produk akan dihapus dari inventaris.
 
 ## Batasan Pemprogramman & Perlakuan Khusus
