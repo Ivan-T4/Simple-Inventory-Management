@@ -1,6 +1,6 @@
 # Simple-Inventory-Management
 
-Proyek Python ini adalah sistem manajemen inventaris sederhana yang digunakan untuk memasukan, mengedit, menghapus informasi, dan mengambil produk menggunakan **Unique ID** setelah dicari sebelumnya berdasarkan **nama produk, client, tanggal masuk, grade produk atau bahkan langsung Unique ID**. Data disimpan dalam struktur dictionary.
+Proyek Python ini adalah sistem manajemen inventaris sederhana yang digunakan untuk memasukan, mengedit, menghapus informasi, dan mengambil produk menggunakan **Unique ID** setelah dicari sebelumnya berdasarkan **nama produk, client, tanggal masuk, grade produk** atau bahkan langsung menggunakkan **Unique ID**. Data disimpan dalam struktur dictionary.
 
 ## Fitur Utama
 
@@ -50,17 +50,19 @@ Maka Unique ID: `CHAB2503ZHP`
 
 Untuk menambahkan produk, sistem menggunakan meminta detail produk yang dapat diinput user seperti:
 
+```
 1. Nama Produk
 2. Client
 3. Tanggal masuk produk
 4. Ukuran produk(lebar, panjang, tinggi)
 5. Jumlah produk yang dimasukkan
+```
 
-lalu sistem akan membuat **Unique ID** dari detail informasi produk yang telah diberikan.
+lalu sistem akan membuat `Unique ID` dari detail informasi produk yang telah diberikan.
 
-**Jika** detail produk yang diberikan(diinput) **memiliki kesamaan dengan produk yang sudah ada** di inventaris, **Stock** dari produk yang ada di inventaris akan ditambah sesuai dengan jumlah yang user berikan/masukan.
+Jika detail produk yang diberikan(diinput) **memiliki kesamaan dengan produk yang sudah ada** di inventaris, `Stock` dari produk yang ada di inventaris akan ditambah sesuai dengan jumlah yang user berikan/masukan.
 
-**jika** detail produk yang diberikan(diinput) hanya memiliki kesamaan **Unique ID** dengaan produk yang sudah ada di inventaris tetapi detail dimensi atau ukuran berbeda, sistem akan **menolak** inputan tersebut dan menyarankan untuk memasukkan produk 1 hari setelahnya sehinggal **Unique ID** berbeda
+jika detail produk yang diberikan(diinput) **hanya** memiliki kesamaan `Unique ID` dengaan produk yang sudah ada di inventaris tetapi detail dimensi atau ukuran berbeda, sistem akan **menolak** inputan tersebut dan menyarankan untuk memasukkan produk 1 hari setelahnya sehingga `Unique ID` berbeda
 
 ## Grading Ukuran Produk
 
@@ -85,13 +87,13 @@ Untuk mengedit produk, sistem menggunakan pendekatan berikut:
 1. Cari produk berdasarkan permintaan user (unique_id/nama produk/client/tanggal/grade).
 2. pilih produk dengan memberikan Unique ID produknya.
 3. Lakukan perubahan pada detail produk(nama produk/client/tanggal/ukuran) yang diinginkan.
-4. Salin detailnya ke dictionary sementara (`temp_dict`).
+4. Salin detailnya ke dictionary sementara (`temp_entry`).
 5. Hitung ulang Unique ID berdasarkan data terbaru.
 6. Simpan ke dictionary `inventory` dengan Unique ID baru.
 7. Hapus ID lama dari inventaris.
 
 ### Contoh:
-produk sudah dipilih menggunakan Unique ID = CHAB25032025ZHP, lalu sistem akan memberikan preview detail produk
+produk sudah dipilih menggunakan `Unique ID` = CHAB25032025ZHP, lalu sistem akan memberikan preview detail produk
 
 ```python
 inventory = {
@@ -108,8 +110,8 @@ inventory = {
 Misal user ingin mengubah `Client` menjadi "XYZ":
 
 1. Field `Client` diganti ke XYZ.
-2. Unique ID dibuat ulang menggunkan logika yang sama saat membuat **Unique ID** → `CHXY25032025ZHP`.
-3. Data lama(Unique ID: "CHAB25032025ZHP" beserta detailnya) dihapus, data baru dimasukkan dengan ID baru("CHXY25032025ZHP" beserta detailnya).
+2. Unique ID dibuat ulang menggunkan logika yang sama saat membuat `Unique ID` → `CHXY25032025ZHP`.
+3. Data lama(`Unique ID`: "CHAB25032025ZHP" beserta detailnya) dihapus, data baru dimasukkan dengan `Unique ID` baru("CHXY25032025ZHP" beserta detailnya).
 
 ```python
 inventory = {
@@ -128,24 +130,24 @@ inventory = {
 Untuk pengambilan produk, sistem menggunakan pendekatan berikut:
 
 1. Cari produk berdasarkan permintaan user (unique_id/nama produk/client/tanggal/grade).
-2. Memilih produk dengan memberikan Unique ID produknya.
+2. Memilih produk dengan memberikan `Unique ID` produknya.
 3. Melakukan preview produk yang ingin diambil.
-4. Menanyakan jumlah produk yang akan diambil.*
-5. Mengurangi stock produk dari inventaris setelah ada konfirmasi pengambilan.**
+4. Menanyakan jumlah atau `Stock` produk yang akan diambil.*
+5. Mengurangi `Stock` produk dari inventaris setelah ada konfirmasi pengambilan.**
 
-*: jika stock produk yang ingin diambil **lebih banyak** dari yang ada di inventaris, permintaan pengambilan akan dibatalkan.
-**: jika stock produk di inventari menjadi **0** setelah adanya pengambilan, maka detail produk akan dihapus dari inventaris.
+*: jika `Stock` produk yang ingin diambil **lebih banyak** dari yang ada di inventaris, permintaan pengambilan akan dibatalkan.
+**: jika `Stock` produk di inventari menjadi **0** setelah adanya pengambilan, maka detail produk akan dihapus dari inventaris.
 
 ## Batasan Pemprogramman & Perlakuan Khusus
 
 ### 1. Penambahan Produk dengan ID Sama
 
-Jika produk baru memiliki **Unique ID** yang sudah digunakan, sistem akan menolak penambahan tersebut **meskipun detail ukuran berbeda**. Hal ini dilakukan untuk menjaga Unique ID dan sebagai gantinya sistem memberikan
-saran untuk **memasukkan produk 1 hari setelahnya** supaya **Unique ID** berbeda
+Jika produk baru memiliki `Unique ID` yang sudah digunakan, sistem akan menolak penambahan tersebut **meskipun detail ukuran berbeda**. Hal ini dilakukan untuk menjaga Unique ID dan sebagai gantinya sistem memberikan
+saran untuk **memasukkan produk 1 hari setelahnya** supaya `Unique ID` berbeda
 
 ### 2. Edit Produk Menjadi ID yang Sudah Ada
 
-Jika hasil edit membuat produk memiliki ID yang sama dengan produk lain di inventaris, sistem juga akan error karena temp_entry memiliki unique ID yang sama dengan produk yang ada di inventory dictionary sehingga tidak bisa dibuat dan dimasukkan kedalam inventory dictionary.
+Jika hasil edit membuat produk memiliki `Unique ID` yang sama dengan produk lain di inventaris, sistem juga akan error karena `temp_entry` memiliki `Unique ID` yang sama dengan produk yang ada di inventory dictionary sehingga tidak bisa dibuat dan dimasukkan kedalam inventory dictionary.
 
 
 
