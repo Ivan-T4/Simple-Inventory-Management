@@ -1,19 +1,21 @@
 # Simple-Inventory-Management
+Capstone Project by Ivan Taufiqurrahman
 
+## Project
 Proyek Python ini adalah sistem manajemen inventaris sederhana yang digunakan untuk memasukan, mengedit, menghapus informasi, dan mengambil produk menggunakan **Unique ID** setelah dicari sebelumnya berdasarkan **nama produk, client, tanggal masuk, grade produk** atau bahkan langsung menggunakkan **Unique ID**. Data disimpan dalam struktur dictionary.
 
 ## Fitur Utama
 
-| Fitur                      | Penjelasan                                                                                                                                |
-| ----------------------     | ------------------------------------------------------------------------------------------------------------------------------------------|
-| Add Product                | Menambahkan produk baru beserta detailnya dan secara otomatis menghasilkan Unique ID. Penjelasan lebih ada dibagian bawah                 |
-| Search Product             | Mencari produk berdasarkan Unique ID, nama produk, nama client, tanggal masuk, atau grade.                                                |
-| Edit Product               | Mengedit detail produk yang ada. Unique ID akan diperbarui otomatis jika elemen penting berubah. Penjelasan lebih ada di bagian bawah     |
-| Delete Product             | Menghapus produk dari inventaris.                                                                                                         |
-| Takeout Product            | Mengambil produk dari inventaris. Stock produk akan otomatis berkurang jika sudah ada konfirmasi. Penjelasan lebih ada di bagian bawah |
-| Show All Product details   | Menampilkan seluruh detail dari 1 produk yang telah dipilih                                                                               |
-| Show All Inventory         | Menampilkan seluruh data produk dalam inventaris.                                                                                         |
-| Exit                       | Menutup program atau kembali ke menu sebelumnya jika memungkinkan.                                                                        |
+| Fitur                      | Penjelasan                                                                                                                                 |
+| ----------------------     | -------------------------------------------------------------------------------------------------------------------------------------------|
+| Add Product                | Menambahkan produk baru beserta detailnya dan secara otomatis menghasilkan Unique ID. Penjelasan lebih ada dibagian bawah.                 |
+| Search Product             | Mencari produk berdasarkan Unique ID, nama produk, nama client, tanggal masuk, atau grade.                                                 |
+| Edit Product               | Mengedit detail produk yang ada. Unique ID akan diperbarui otomatis jika elemen penting berubah. Penjelasan lebih ada di bagian bawah.     |
+| Delete Product             | Menghapus produk dari inventaris.                                                                                                          |
+| Takeout Product            | Mengambil produk dari inventaris. Stock produk akan otomatis berkurang jika sudah ada konfirmasi. Penjelasan lebih ada di bagian bawah.    |
+| Show All Product details   | Menampilkan seluruh detail dari 1 produk yang telah dipilih.                                                                               |
+| Show All Inventory         | Menampilkan seluruh data produk dalam inventaris.                                                                                          |
+| Exit                       | Menutup program atau kembali ke menu sebelumnya jika memungkinkan.                                                                         |
 
 ## Cara Pembuatan Unique ID
 
@@ -110,7 +112,7 @@ inventory = {
 Misal user ingin mengubah `Client` menjadi "XYZ":
 
 1. Field `Client` diganti ke XYZ.
-2. Unique ID dibuat ulang menggunkan logika yang sama saat membuat `Unique ID` → `CHXY25032025ZHP`.
+2. `Unique ID` dibuat ulang menggunkan logika yang sama saat membuat `Unique ID` → `CHXY25032025ZHP`.
 3. Data lama(`Unique ID`: "CHAB25032025ZHP" beserta detailnya) dihapus, data baru dimasukkan dengan `Unique ID` baru("CHXY25032025ZHP" beserta detailnya).
 
 ```python
